@@ -59,6 +59,7 @@ class Game
   def flush(hand)
     suits = suit_list(hand)
     return false if suits.all?(suits[0]) != true
+    true
   end
 
   def straight_flush(hand)

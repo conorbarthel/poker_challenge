@@ -29,4 +29,11 @@ RSpec.describe Game do
     expect(@game.straight(hand1)).to eq(true)
     expect(@game.straight(hand2)).to eq(false)
   end
+
+  it "can determine a flush" do
+    hand1 = %w(2H 3H 7H 5H JH)
+    hand2 = %w(3H 4S 8C 5C 9D)
+    expect(@game.flush(hand1)).to eq(true)
+    expect(@game.flush(hand2)).to eq(false)
+  end
 end
