@@ -22,4 +22,11 @@ RSpec.describe Game do
     ranks = %w(A K Q J 10)
     expect(@game.convert(ranks)).to eq([10, 11, 12, 13, 14])
   end
+
+  it "can determine a straight" do
+    hand1 = %w(2H 3S 4H 5C 6D)
+    hand2 = %w(3H 4S 8C 5C 9D)
+    expect(@game.straight(hand1)).to eq(true)
+    expect(@game.straight(hand2)).to eq(false)
+  end
 end

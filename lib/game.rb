@@ -48,12 +48,12 @@ class Game
 
   def straight(hand)
     ranks = rank_list(hand)
-    index = 0
-    ranks.each do |rank|
-      index += 1
-      return false if rank.next != ranks[index] || ranks[index] == nil
-      return true
+    ranks.each_with_index do |rank, index|
+      if index != (ranks.length - 1)
+        return false if rank.next != ranks[index + 1]
+      end
     end
+    true
   end
 
   def flush(hand)
