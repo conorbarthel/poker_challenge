@@ -1,6 +1,7 @@
 require "pry"
+require "./lib/hand_generator.rb"
 class Game
-  
+
   def player_1_hand(deal)
     deal[0..4]
   end
