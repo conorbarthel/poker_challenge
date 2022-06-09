@@ -19,6 +19,7 @@ RSpec.describe Game do
   end
 
   it "converts face cards" do
-
+    ranks = %w(A K Q J 10)
+    expect(@game.convert(ranks)).to eq([10, 11, 12, 13, 14])
   end
 end
