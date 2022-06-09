@@ -36,4 +36,15 @@ RSpec.describe Game do
     expect(@game.flush(hand1)).to eq(true)
     expect(@game.flush(hand2)).to eq(false)
   end
+
+  it "straight_flush" do
+    hand1 = %w(2H 3H 7H 5H JH)
+    hand2 = %w(3H 4S 8C 5C 9D)
+    hand3 = %w(2H 3S 4H 5C 6D)
+    hand4 = %w(6S 7S 8S 9S TS)
+    expect(@game.straight_flush(hand4)).to eq(true)
+    expect(@game.straight_flush(hand2)).to eq(false)
+    expect(@game.straight_flush(hand1)).to eq(false)
+    expect(@game.straight_flush(hand3)).to eq(false)
+  end
 end
