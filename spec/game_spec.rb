@@ -1,5 +1,6 @@
 require "./lib/game.rb"
 require "./lib/hand_generator.rb"
+require 'pry'
 
 RSpec.describe Game do
   before(:each) do
@@ -59,5 +60,19 @@ RSpec.describe Game do
     expect(@game.royal_flush(hand1)).to eq(false)
     expect(@game.royal_flush(hand3)).to eq(false)
     expect(@game.royal_flush(hand4)).to eq(false)
+  end
+
+  it "blank_of_a_kind" do
+    hand1 = %w(2H 4H 2H 5H JH)
+    hand2 = %w(3H 3S 3C 5C 9D)
+    hand3 = %w(2H 2S 4H 4C 4D)
+    hand4 = %w(6S 7S 8S 9S TS)
+
+    expect(@game.blank_of_a_kind(hand1)[-1]).to eq(2)
+    expect(@game.blank_of_a_kind(hand2)[-1]).to eq(3)
+    expect(@game.blank_of_a_kind(hand2)[-2]).to eq(1)
+    expect(@game.blank_of_a_kind(hand3)[-1]).to eq(3)
+    expect(@game.blank_of_a_kind(hand3)[-2]).to eq(2)
+    expect(@game.blank_of_a_kind(hand4).sample).to eq(1)
   end
 end

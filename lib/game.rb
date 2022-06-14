@@ -99,15 +99,11 @@ class Game
 
   def blank_of_a_kind(hand)
     ranks = rank_list(hand)
-    counts = []
-    ranks.each do |count_rank|
-      count = 0
-      ranks.each do |rank|
-        count += 1 if count_rank == rank
-        counts << count
-      end
+    counts = Hash.new(0)
+    ranks.each do |rank|
+      counts[rank] += 1
     end
-    counts.sort
+    counts.values.sort
   end
 
   def score(hand)
